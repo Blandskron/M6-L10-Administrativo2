@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Usuarios{% endblock title %}
+
+{% block content %}
+<h1>Lista de Usuarios</h1>
+<a class="btn btn-success mb-3" href="{% url 'front_user:create_user' %}">Crear Usuario</a>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Username</th><th>Email</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in users %}
+  <tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+      <a class="btn btn-sm btn-primary" href="{% url 'front_user:detail_user' user.id %}">Ver</a>
+      <a class="btn btn-sm btn-warning" href="{% url 'front_user:update_user' user.id %}">Actualizar</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

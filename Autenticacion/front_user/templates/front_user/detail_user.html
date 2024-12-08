@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle Usuario{% endblock title %}
+
+{% block content %}
+<h1>Detalle de Usuario</h1>
+<p><strong>ID:</strong> {{ user.id }}</p>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+{% if user.profile and user.profile.photo %}
+  <p><strong>Photo:</strong><br><img src="{{ user.profile.photo }}" alt="Foto de perfil" class="img-thumbnail"></p>
+{% endif %}
+<a class="btn btn-info" href="{% url 'front_user:list_users' %}">Volver a la lista</a>
+{% endblock content %}

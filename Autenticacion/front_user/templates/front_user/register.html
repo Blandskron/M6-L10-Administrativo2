@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Registro de Usuario{% endblock title %}
+
+{% block content %}
+<h1>Registrar Nuevo Usuario</h1>
+<form method="post" enctype="multipart/form-data" class="form-group">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Username:</label>
+        <input class="form-control" type="text" name="username">
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        <input class="form-control" type="password" name="password">
+    </div>
+    <div class="form-group">
+        <label>Email (opcional):</label>
+        <input class="form-control" type="email" name="email">
+    </div>
+    <div class="form-group">
+        <label>Foto de perfil (opcional):</label>
+        <input class="form-control-file" type="file" name="photo">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Registrar">
+</form>
+{% endblock content %}
